@@ -1,0 +1,83 @@
+.switch {
+    display: flex;
+    margin-bottom: 40px;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  .switch__label {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 14px;
+    transition: all .3s;
+  }
+  
+  .switch__label:hover {
+    opacity: .8;
+  }
+  
+  .switch__input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .switch__slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(235, 235, 235, 1);
+    border-radius: 20px;
+    transition: all .3s;
+  }
+  
+  .switch__slider::before {
+    content: '';
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    bottom: 2px;
+    left: 2px;
+    top: 2px;
+    background-color: rgb(174 164 164);
+    border-radius: 50%;
+    transition: all .3s;
+  }
+  
+  .switch__input:checked + .switch__slider {
+    background-color: rgba(43, 224, 128, 1);
+  }
+  
+  .switch__input:checked + .switch__slider::before {
+    transform: translateX(20px);
+  }
+  
+  .switch__description {
+    margin: 0 0 0 12px;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 18px;
+  }
+  @media screen and (max-width: 900px) {
+
+    .switch {
+      margin-top: 38px;
+    }
+
+  }
+  @media screen and (max-width: 763px) {
+    .switch__container {
+      margin-bottom: 38px;
+    }
+    .switch {
+      margin-top: 48px;
+    }
+    .switch__description {
+      margin: 0 0 0 13px;
+      font-size: 11px;
+    }
+  }

@@ -1,0 +1,68 @@
+.header__link {
+    font-family: "Inter";
+font-size: 13px;
+font-weight: 400;
+line-height: 18px;
+letter-spacing: 0em;
+text-align: right;
+color: #FFFFFF;
+text-decoration: none;
+margin: auto 7px auto 0;
+}
+.header__link:last-of-type {
+    margin: auto 0 auto 0;
+}
+.header__mail {
+    font-family: "Inter";
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0em;
+    text-align: right;
+    color: #FFFFFF;
+    margin-left: 364px;
+    background: #313131;
+    width: 100px;
+    height: 32px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+.navigation__register {
+    background-color: transparent;
+    border: none;
+    font-family: 'Inter';
+font-size: 12px;
+font-weight: 500;
+line-height: 16px;
+letter-spacing: 0px;
+text-align: right;
+margin: 0 30px 0 0;
+color: #FFFFFF;
+cursor: pointer;
+}
+.navigation__login {
+    background: #3DDC84;
+    font-family: 'Inter';
+font-size: 12px;
+font-weight: 400;
+line-height: 16px;
+letter-spacing: 0px;
+text-align: center;
+border: none;
+border-radius: 3px;
+width: 76px;
+height: 32px;
+cursor: pointer;
+}
+@media screen and (max-width: 550px) {
+    .navigation__register {
+       font-size: 10px;
+    
+    }
+    .navigation__login {
+        font-size: 10px;
+    }
+}

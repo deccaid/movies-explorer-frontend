@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    background: #202020;
+    color: #FFFFFF;
+
+
+}
+.header {
+    background-color:#202020;
+    margin: 0;
+    width: 100%;
+}
+.container {
+    max-width: 1140px;
+    width: 100%;
+    margin: 0 auto;
+}
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    padding: 18px 0;
+    margin: 0;
+}
+.header__block {
+    display: flex;
+    align-items: center;
+}
+@media screen and (max-width: 1260px) {
+    .container {
+        width: 90%;
+    }
+}
+@media screen and (max-width: 900px) {
+    .container {
+        max-width: 668px;
+    }
+}
+@media screen and (max-width: 550px) {
+    .container {
+        max-width: 290px;
+        width: 100%;
+    }
+}

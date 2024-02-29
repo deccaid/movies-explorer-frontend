@@ -49,7 +49,7 @@ const Register = () => {
             
           </label>
           </div>
-          <button className="login__button">Регистрация</button>
+          <button className="login__button">Зарегистрироваться</button>
           <p className="login__caption">Уже зарегистрированы?
           <Link to="/signin" className="login__link">Войти</Link></p>
           </div>

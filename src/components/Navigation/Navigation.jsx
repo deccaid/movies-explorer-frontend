@@ -5,9 +5,9 @@ import BurgerMenu from "../BurgerMenu/BurgerMenu";
 
 
 const Navigation = ({ isLoggedIn }) => {
-  const isMobile = useMediaQuery({ query: `(max-width: 1180px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 768px)` });
     return (
-      <div className="navigation">
+      <>
         {!isLoggedIn ? (
           <nav className="navigation__buttons">
             <Link to="/signup">
@@ -20,7 +20,7 @@ const Navigation = ({ isLoggedIn }) => {
         ): isMobile ? (
           <BurgerMenu />
         ) : (
-          <div className="header__blocks">
+          <>
           <div className="header__block">
             <Link className="header__link" to="/movies">
               Фильмы
@@ -30,9 +30,9 @@ const Navigation = ({ isLoggedIn }) => {
             </Link>
             </div>
             <Link to='/profile' className="header__mail">Аккаунт</Link>
-            </div>
+        </>
         )}
-      </div>
+      </>
     );
   };
 

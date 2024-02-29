@@ -2,16 +2,16 @@
     display: flex;
     justify-content: center;
     position: absolute;
-    align-items: center;
     width: 100%;
     height: 100%;
+    margin-top: 70px;
 }
 .login__container {
     max-width: 396px;
     width: 100%;
 }
 .login__title {
-    font-family: 'Inter';
+    font-family: 'Inter', Arial, sans-serif;
 font-size: 24px;
 font-weight: 500;
 line-height: 29px;
@@ -24,8 +24,11 @@ margin: 40px 0;
     display: flex;
     flex-direction: column;
 }
+.login__label:last-child .login__input {
+    margin-bottom: 91px;
+}
 .login__label-text {
-    font-family: 'Inter';
+    font-family: 'Inter', Arial, sans-serif;
 font-size: 10px;
 font-weight: 400;
 line-height: 12px;
@@ -42,7 +45,7 @@ color: #8B8B8B;
     margin-bottom: 20px;
 }
 .login__label-margin {
-    margin-bottom: 157px;
+    margin-bottom: 86px;
 }
 .login__button {
     background: #4285F4;
@@ -51,7 +54,7 @@ color: #8B8B8B;
     color: #fff;
     border: none;
     border-radius: 3px;
-    font-family: 'Inter';
+    font-family: 'Inter', Arial, sans-serif;
     font-size: 14px;
     font-weight: 400;
     line-height: 17px;
@@ -60,7 +63,7 @@ color: #8B8B8B;
     
 }
 .login__caption {
-    font-family: 'Inter';
+    font-family: 'Inter', Arial, sans-serif;
 font-size: 14px;
 font-weight: 400;
 line-height: 17px;
@@ -75,9 +78,15 @@ margin-bottom: 102px;
     text-decoration: none;
     margin-left: 6px;
 }
+@media screen and (max-width: 768px) {
+    .login__container {
+        margin-top: 160px;
+    }
+}
 @media screen and (max-width: 550px) {
     .login__container {
         max-width: 260px;
+        margin-top: 128px;
     }
     .login__logo {
         margin: 0 auto;

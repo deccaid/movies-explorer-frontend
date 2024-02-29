@@ -25,7 +25,6 @@ const goBack = () => {
   navigate(-1);
 };
   return ( 
-    <html lang="ru">
     <div className="app">
             {visualHeaderPaths.includes(path) && <Header isLoggedIn={isLoggedIn}/>}
             <Routes>
@@ -45,7 +44,6 @@ const goBack = () => {
             </Routes>
             {visualFooterPaths.includes(path) && <Footer />}
             </div>
-            </html>
   )
   }
 export default App;

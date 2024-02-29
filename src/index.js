@@ -7,12 +7,14 @@ import './vendor/fonts/inter.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <html lang="ru">
   <BrowserRouter>
 
   <React.StrictMode>
     <App />
   </React.StrictMode>
   </BrowserRouter>
+  </html>
 );
 
 // If you want to start measuring performance in your app, pass a function

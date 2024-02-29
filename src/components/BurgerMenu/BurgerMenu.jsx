@@ -17,7 +17,10 @@ const BurgerMenu = () => {
       <img className="burger__icon" src={Icon}  onClick={toggleMenu}></img>
       <div className={`burger-menu__overlay ${
           isOpen ? "burger-menu__overlay_type_opened" : ""
-        }`}>
+        }`}></div>
+          <div className={`burger__block ${
+            isOpen ? "burger__block_type_open" : ""
+          }`}>
           <button className="burger__close" onClick={toggleMenu}></button>
           <Link to="/" className="burger__link">Главная</Link>
           <Link to="/movies" className="burger__link">Фильмы</Link>

@@ -9,7 +9,7 @@
 
 }
 .error__title {
-    font-family: 'Inter';
+    font-family: 'Inter', Arial, sans-serif;
 font-size: 140px;
 font-weight: 400;
 line-height: 169px;
@@ -20,7 +20,7 @@ margin: 0 0 30px;
 
 }
 .error__subtitle {
-    font-family: 'Inter';
+    font-family: 'Inter', Arial, sans-serif;
 font-size: 16px;
 font-weight: 400;
 line-height: 19px;
@@ -38,7 +38,7 @@ margin: 0;
     text-align: center;
     justify-content: flex-end;
     bottom: 60px;
-    font-family: 'Inter';
+    font-family: 'Inter', Arial, sans-serif;
 font-size: 14px;
 font-weight: 400;
 line-height: 17px;

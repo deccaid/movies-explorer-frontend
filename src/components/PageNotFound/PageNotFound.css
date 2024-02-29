@@ -50,12 +50,16 @@ cursor: pointer;
 @media screen and (max-width: 550px) {
 .error__title{
     font-size: 80px;
+    line-height: 97px;
+    margin-bottom: 14px;
 }
 .error__subtitle {
     font-size: 12px;
 }
 .error__text {
     font-size: 12px;
+    bottom: 17px;
 }
+
 
 }

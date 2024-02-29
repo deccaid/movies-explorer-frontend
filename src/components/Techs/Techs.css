@@ -38,6 +38,8 @@ margin: 26px auto 97px;
 .techs__blocks {
     display: flex;
     justify-content: center;
+    padding-left: 0;
+    list-style-type: none;
 }
 .techs__block {
     background: #303030;

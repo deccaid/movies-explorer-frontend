@@ -33,6 +33,20 @@ display: block;
     }
   
 }
+@media screen and (max-width: 770px) {
+
+    .card-list__block {
+        justify-content: start;
+    }
+  
+}
+@media screen and (max-width: 767px) {
+
+    .card-list__block {
+        justify-content: center;
+    }
+  
+}
 @media screen and (max-width: 550px) {
     .card-list__block {
       gap: 35px;

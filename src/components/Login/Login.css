@@ -41,8 +41,8 @@ color: #8B8B8B;
     border: none;
     margin-bottom: 20px;
 }
-.login__label:last-child .login__input {
-    margin-bottom: 94px;
+.login__label-margin {
+    margin-bottom: 157px;
 }
 .login__button {
     background: #4285F4;
@@ -86,9 +86,10 @@ margin-bottom: 102px;
     .login__title {
         text-align: center;
         margin-bottom: 80px;
+        margin-top: 52px;
     }
     .login__label:last-child .login__input {
-        margin-bottom: 174px;
+        margin-bottom: 177px;
     }
     .login__caption {
         font-size: 12px;
@@ -96,5 +97,11 @@ margin-bottom: 102px;
     }
     .login__button {
         font-size: 12px;
+    }
+    .login__label-margin {
+        margin-bottom: 94px;
+    }
+    .login {
+        margin-top: 50px;
     }
 }

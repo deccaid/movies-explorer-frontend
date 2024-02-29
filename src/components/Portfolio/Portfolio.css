@@ -20,6 +20,10 @@
     color: #fff;
     margin: 0 0 20px;
 }
+.portfolio__blocks {
+    list-style-type: none;
+    padding-left: 0;
+}
 .portfolio__block:last-child {
     margin-bottom: 185px;
     border-bottom: none;
@@ -47,7 +51,7 @@ margin: 0;
         font-size: 28px;
     }
     .portfolio__block:last-child {
-        margin-bottom: 132px;
+        margin-bottom: 125px;
     }
     .portfolio__title {
         font-size: 14px;
@@ -58,13 +62,14 @@ margin: 0;
         line-height: 28px;
     }
     .portfolio__icon {
-        width: 14px;
-        height: 22px;
+        width: 10px;
+    height: 16px;
     }
     .portfolio__block {
         border-bottom: solid 1px #E6E6E6;
     }
-    .portfolio__block:last-child {
-        margin-bottom: 149px;
+    .portfolio {
+        margin-left: -5px;
+    margin-right: 10px;
     }
 }

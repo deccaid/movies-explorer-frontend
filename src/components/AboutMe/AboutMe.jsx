@@ -6,9 +6,9 @@ const AboutMe = () => {
   return (
             <div className="container">
             <section className="info" id='aboutMe'>
-            <p className="techs__name">
+            <h2 className="techs__name">
             Студент
-            </p>
+            </h2>
             <div className="info__container">
               <div className="info-block">
                 <h3 className="info__title">Илья</h3>

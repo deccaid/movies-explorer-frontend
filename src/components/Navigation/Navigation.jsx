@@ -20,6 +20,7 @@ const Navigation = ({ isLoggedIn }) => {
         ): isMobile ? (
           <BurgerMenu />
         ) : (
+          <div className="header__blocks">
           <div className="header__block">
             <Link className="header__link" to="/movies">
               Фильмы
@@ -27,8 +28,9 @@ const Navigation = ({ isLoggedIn }) => {
             <Link className="header__link" to="/saved-movies">
               Сохранённые фильмы
             </Link>
+            </div>
             <Link to='/profile' className="header__mail">Аккаунт</Link>
-          </div>
+            </div>
         )}
       </div>
     );

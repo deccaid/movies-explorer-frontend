@@ -85,7 +85,7 @@ display: block;
   @media screen and (max-width: 550px) {
     .profile__container {
         max-width: 260px;
-        margin-top: -131px;
+        margin-top: -53px;
 
     }
     .profile__title {

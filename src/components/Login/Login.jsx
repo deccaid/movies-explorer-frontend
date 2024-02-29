@@ -7,7 +7,9 @@ const Login = () => {
   return (   
     <div className="login">
         <div className="login__container">
-        <img className="login__logo" src={logo} alt="Логотип"/>
+        <Link to="/">
+            <img src={logo} alt='Логотип' className='login__logo'></img>
+            </Link>
           <h1 className="login__title">Рады видеть!</h1>
           <div className="login__inputs">
           <label className="login__label">
@@ -20,7 +22,7 @@ const Login = () => {
               placeholder="Введите почту"
             />            
           </label>
-          <label className="login__label">
+          <label className="login__label login__label-margin">
             <span className="login__label-text">Пароль</span>
             <input
               className="login__input"

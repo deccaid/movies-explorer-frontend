@@ -9,6 +9,10 @@ color: #FFFFFF;
 text-decoration: none;
 margin: auto 7px auto 0;
 }
+.header__blocks {
+    display: flex;
+    flex-direction: row;
+}
 .header__link:last-of-type {
     margin: auto 0 auto 0;
 }

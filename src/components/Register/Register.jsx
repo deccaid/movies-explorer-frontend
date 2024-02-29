@@ -7,19 +7,21 @@ const Register = () => {
   return (   
     <div className="login">
         <div className="login__container">
-        <img className="login__logo" src={logo} alt="Логотип"/>
+        <Link to="/">
+            <img src={logo} alt='Логотип' className='login__logo'></img>
+            </Link>
           <h1 className="login__title">Добро пожаловать!</h1>
           <div className="login__inputs">
           <label className="login__label">
             <span className="login__label-text">Имя</span>
             <input
               className="login__input"
-              name="password"
-              type="password"
+              name="name"
+              type="text"
               minLength="6"
               maxLength="30"
               required
-              placeholder="Введите пароль"
+              placeholder="Введите Имя"
             />
             
           </label>
@@ -33,7 +35,7 @@ const Register = () => {
               placeholder="Введите почту"
             />            
           </label>
-          <label className="login__label">
+          <label className="login__label register__label">
             <span className="login__label-text">Пароль</span>
             <input
               className="login__input"

@@ -1,0 +1,27 @@
+.container-movies {
+    max-width: 1140px;
+    width: 100%;
+    margin: 0 auto;
+}
+@media screen and (max-width: 1160px) {
+    .container-movies {
+        width: 94%;
+    }
+}
+@media screen and (max-width: 900px) {
+    .container-movies {
+        max-width: 708px;
+    }
+}
+@media screen and (max-width: 740px) {
+    .container-movies {
+        max-width: 708px;
+        width: 90%;
+    }
+}
+@media screen and (max-width: 550px) {
+    .container-movies {
+        max-width: 300px;
+        width: 100%;
+    }
+}

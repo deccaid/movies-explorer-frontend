@@ -1,3 +1,6 @@
+.card-list {
+    font-family: 'Inter', Arial, sans-serif;
+}
 .card-list__block {
     display: flex;
     flex-direction: row;

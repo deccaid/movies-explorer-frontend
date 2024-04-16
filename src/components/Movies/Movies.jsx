@@ -1,54 +1,37 @@
 import "./Movies.css";
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
-import { useMoviesContext } from "../../contexts/MoviesContext";
 
 const Movies = ({
+  setSearchInputValue,
+  searchInputValue,
+  setIsLoading,
+  isShortFilm,
+  setIsShortFilm,
+  isLoading,
+  handleLikeMovie,
   movies,
-  onToggleSave,
-  onDeleteSave,
-  checkSavedMovies,
-  getMovies,
-  
+  savedMovies,
+  setSavedMovies,
+  serverError,
 }) => {
-  const {
-    searchQuery,
-    setSearchQuery,
-    shortFilm,
-    setShortFilm,
-    searched,
-    setSearched,
-  } = useMoviesContext();
-
-
-  
-  const handleSearchChange = (query) => {
-    if (!searched) {
-      getMovies();
-      setSearched(true);
-    }
-    setSearchQuery(query);
-    localStorage.setItem("searchQuery", query);
-  };
-
-  const handleShortFilmChange = (checked) => {
-    setShortFilm(checked);
-  };
   return (
     <div className="container-movies">
       <SearchForm 
-        searchQuery={searchQuery}
-        onSearch={handleSearchChange}
-        onShortFilmChange={handleShortFilmChange}
-        shortFilm={shortFilm} />
+        setSearchInputValue={setSearchInputValue}
+        searchInputValue={searchInputValue}
+        setIsLoading={setIsLoading}
+        isShortFilm={isShortFilm}
+        setIsShortFilm={setIsShortFilm}
+        savedMovies={savedMovies}
+        setSavedMovies={setSavedMovies}/>
         <MoviesCardList
-        checkSavedMovies={checkSavedMovies}
-        onDeleteSave={onDeleteSave}
-        onToggleSave={onToggleSave}
-        searched={searched}
-        movies={movies}
-        searchQuery={searchQuery}
-        shortFilm={shortFilm}
+       serverError={serverError}
+       handleLikeMovie={handleLikeMovie}
+       movies={movies}
+       searchInputValue={searchInputValue}
+       isShortFilm={isShortFilm}
+       savedMovies={savedMovies}
       />
     </div>
   );

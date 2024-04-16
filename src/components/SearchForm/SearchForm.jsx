@@ -1,47 +1,100 @@
 import "./SearchForm.css";
 import SwitchCheckbox from "../SwitchCheckbox/SwitchCheckbox"
-import useFormWithValidation from '../../hooks/useFormWithValidation';
+
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 
 const SearchForm = ({
-  onSearch,
-  onShortFilmChange,
-  shortFilm,
-  searchQuery = '',
+  setSearchInputValue,
+  searchInputValue,
+  setIsLoading,
+  isShortFilm,
+  setIsShortFilm,
+  isShortSavedFilm,
+  setIsShortSavedFilm,
+  savedMovies,
+  setSavedMovies,
 }) => {
-
-  const { values, handleChange } = useFormWithValidation({
-    search: searchQuery,
-  });
-
-  const handleSubmit = (e) => {
+  const location = useLocation();
+  const [error, setError] = useState('');  
+  const [textInput, setTextInput] = useState(searchInputValue);
+  
+  const handleSearchSubmit = (e) => {
     e.preventDefault();
-    onSearch(values.search);
+    try {
+      setIsLoading(true);     
+      if (location.pathname === '/movies') {
+        localStorage.setItem('searchInputValue', textInput);
+      } else {
+        localStorage.setItem('searchSavedInputValue', textInput);
+      }
+      setSearchInputValue(textInput);      
+      if (savedMovies.length === 0 && location.pathname === '/saved-movies') {
+          setError('У Вас нет сохраненных фильмов');
+        } else {
+          if (!textInput) {
+             setError('Введите название');
+          } else {
+          setError('');
+        }       
+      }              
+    } catch (e) {
+      console.error(e?.reason || e?.message);
+      setIsLoading(false);
+    } finally {
+      setIsLoading(false);
+    }    
   };
 
-  const handleShortFilmToggle = (e) => {
-    onShortFilmChange(e.target.checked);
+  useEffect(() => {
+    location.pathname === '/saved-movies' && !searchInputValue
+      ? setSearchInputValue(localStorage.getItem('searchSavedInputValue') || '')
+      : setSearchInputValue('') && setSavedMovies(localStorage.getItem('allSavedMovies', savedMovies));
+    return () => {
+      setSearchInputValue('');
+    };
+  }, [location.pathname]);
+
+  useEffect(() => {
+    location.pathname === '/movies'
+      ? setSearchInputValue(localStorage.getItem('searchInputValue') || '')
+      : setSearchInputValue('') && setSavedMovies(localStorage.getItem('allSavedMovies', savedMovies));
+    return () => {
+      setSearchInputValue('');
+    };
+  }, [location.pathname]);
+  
+  const handleInputChange = (e) => {
+    setTextInput(e.target.value);
   };
+
+  useEffect(() => {
+    setTextInput(searchInputValue);
+  }, [searchInputValue]);
 
 
   return (
             <>
             <form  className="search__form"
-              onSubmit={handleSubmit}>
+             onSubmit={(e) => handleSearchSubmit(e)}>
                 <div className="search">
                     <input type="text" 
                     placeholder="Фильм" 
                     name="search"
                     className="search__input"
                     autoComplete="off"
-                    value={values.search || ''}
-                    onChange={handleChange} />
+                    value={textInput}
+                    onChange={(e) => handleInputChange(e)}/>
                     <button className="search__button" type="submit"></button>
                     <span className="search__error"></span>
                     </div>
            <SwitchCheckbox 
-           isChecked={shortFilm}
-          onCheckboxChange={handleShortFilmToggle}
+          handleSearchSubmit={handleSearchSubmit}
+          isShortFilm={isShortFilm}
+          setIsShortFilm={setIsShortFilm}
+          isShortSavedFilm={isShortSavedFilm}
+          setIsShortSavedFilm={setIsShortSavedFilm}
           />
            </form>
            </>

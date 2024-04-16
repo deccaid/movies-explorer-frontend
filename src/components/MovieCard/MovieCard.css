@@ -103,6 +103,26 @@ text-decoration: none;
     margin: 0;
     z-index: 2;
   }
+  /* .card__button-save:focus {
+    width: 21px;
+    height: 21px;
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    box-shadow: none;
+    border: none;
+    background: none;
+    background-image: url(../../images/icon__COLOR_invisible.svg);
+    background-repeat: no-repeat;
+    background-color: 
+    #EE3465;
+    background-position: center;
+    border-radius: 30px;
+    transition: 0.3s;
+    padding: 0;
+    margin: 0;
+    z-index: 2;
+  } */
   
   .card__button-save_active:hover {
     cursor: pointer;
@@ -129,6 +149,7 @@ text-decoration: none;
     background-position: center;
     border-radius: 30px;
     background-size: 35%;
+    
   }
 @media screen and (max-width: 950px) {
     .card {

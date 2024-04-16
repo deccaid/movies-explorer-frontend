@@ -5,23 +5,27 @@ import './Login.css';
 import { Link, useNavigate  } from "react-router-dom";
 import useFormWithValidation from '../../hooks/useFormWithValidation';
 
-const Login = ({ loginUser  }) => {
+const Login = ({ handleLogin  }) => {
   const [isRequesting, setIsRequesting] = useState(false);
-  const { values, handleChange, resetForm, errors, isValid } =
+  const { values,handleChange, resetForm, errors, isValid } =
     useFormWithValidation();
-
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    setIsRequesting(true);
-    loginUser(values).finally(() => {
-      setIsRequesting(false);
-    });
-  }
-
-  useEffect(() => {
-    resetForm();
-  }, [resetForm]);
+    const [formValue, setFormValue] = useState({
+      email: '',
+      password: ''
+    })
+  
+  
+    const handleSubmit = (evt) => {      
+      evt.preventDefault();  
+      setIsRequesting(true);
+      handleLogin(values.email, values.password).finally(() => {
+        setIsRequesting(false);
+      });
+  
+    }
+    useEffect(() => {
+      resetForm();
+    }, [resetForm]);
   return (   
     <div className="login">
         <div className="login__container">
@@ -50,7 +54,6 @@ const Login = ({ loginUser  }) => {
               onChange={handleChange}
               autoComplete="off"
               value={values.email || ''}
-
             /> 
              <span className="login__error">{errors.email || ''}</span>           
           </label>
@@ -74,7 +77,9 @@ const Login = ({ loginUser  }) => {
               <span className="login__error">{errors.password || ''}</span>
           </label>
           </div>
-          <button className="login__button" type="submit"  disabled={!isValid || isRequesting}>Войти</button>
+          <button className="login__button" type="submit"
+          disabled={!isValid || isRequesting}
+            >Войти</button>
           </form>
           <p className="login__caption">Ещё не зарегистрированы?
           <Link to="/signup" className="login__link">Регистрация</Link></p>

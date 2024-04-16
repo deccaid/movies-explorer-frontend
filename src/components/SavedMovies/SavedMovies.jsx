@@ -1,43 +1,42 @@
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
-import { useMoviesContext } from "../../contexts/MoviesContext";
-import { useState } from "react";
 
 export default function SavedMovies({
+  setSearchInputValue,
+  searchInputValue,
+  setIsLoading,
+  isShortFilm,
+  setIsShortFilm,
+  handleLikeMovie,
   movies,
-  onDeleteSave,
-  checkSavedMovies,
+  savedMovies,
+  setSavedMovies,
+  serverError,
+  isShortSavedFilm,
+  setIsShortSavedFilm,
 }) {
-  const { searched, setSearched } = useMoviesContext();
-
-  const [searchQuerySave, setSearchQuerySave] = useState("");
-  const [shortFilmSave, setShortFilmSave] = useState(false);
-
-  const handleSearchChange = (query) => {
-    setSearchQuerySave(query);
-    setSearched(true);
-  };
-
-  const handleShortFilmChange = (checked) => {
-    setShortFilmSave(checked);
-    localStorage.setItem("shortFilmSave", checked);
-  };
-
   return (
     <div className="container-movies">
       <main className="saved-movies">
         <SearchForm
-          onSearch={handleSearchChange}
-          onShortFilmChange={handleShortFilmChange}
-          shortFilm={shortFilmSave}
+            setSearchInputValue={setSearchInputValue}
+            searchInputValue={searchInputValue}
+            setIsLoading={setIsLoading}
+            isShortFilm={isShortFilm}
+            setIsShortFilm={setIsShortFilm}
+            isShortSavedFilm={isShortSavedFilm}
+            setIsShortSavedFilm={setIsShortSavedFilm}
+            savedMovies={savedMovies}
+            setSavedMovies={setSavedMovies}
         />
         <MoviesCardList
-          onDeleteSave={onDeleteSave}
-          searched={searched}
-          movies={movies}
-          searchQuery={searchQuerySave}
-          shortFilm={shortFilmSave}
-          checkSavedMovies={checkSavedMovies}
+            serverError={serverError}
+            handleLikeMovie={handleLikeMovie}
+            movies={movies}
+            searchInputValue={searchInputValue}
+            isShortFilm={isShortFilm}
+            savedMovies={savedMovies}
+            isShortSavedFilm={isShortSavedFilm}
         />
       </main>
     </div>

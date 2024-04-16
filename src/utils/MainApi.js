@@ -1,58 +1,124 @@
+const MOVIES_URL = 'https://api.nomoreparties.co';
 class MainApi {
-  #url;
-  #headers;
-  #authHeaders;
-  constructor({ url, headers }) {
-    this.#url = url;
-    this.#headers = headers;
-    this.#authHeaders = null;
+  constructor(options) {
+      this._url = options.baseUrl;
   }
 
-  deleteAuthHeaders = () => (this.#authHeaders = null);
+  _checkResponse(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(res.status);
+  }
 
-  setAuthHeaders = (token) => {
-    this.#authHeaders = {
-      ...this.#headers,
-      authorization: `Bearer ${token}`,
-    };
-  };
+  _request(url, options) {
+      return fetch(url, options).then(this._checkRes)
+  }
 
-  #handleReply = (res) =>
-    res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);
+  getUser(jwt) {
+    return fetch(`${this._url}/users/me`, {
+      method: "GET",
+      headers: {
+        'Authorization': `Bearer ${jwt}`
+    },
+    }).then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(res.status);
+      });
+}
 
-  #makeRequest = (method, path, body, notSave) => {
-    const reqOptions = {
-      method: method,
-      headers: notSave ? this.#headers : this.#authHeaders,
-    };
-    if (body) reqOptions.body = JSON.stringify(body);
+ getSavedMovies() {
+  return fetch(`${this._url}/movies`, {
+    method: "GET",
+    headers: {
+      authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      "Content-type": "application/json",
+    },
+  }).then((res) => {
+    if (res.status === 200) {
+      return res.json();
+    } else {
+      return Promise.reject(res.status);
+    }
+  });
+}
 
-    return fetch(`${this.#url}${path}`, reqOptions).then(this.#handleReply);
-  };
+savedMovie(movie, token) {
+  return fetch(`${this._url}/movies`, {
+    method: "POST",
+    headers: {
+      "Accept": "application/json",
+      "Content-Type": "application/json",
+      'Authorization': `Bearer ${localStorage.getItem("jwt")}`
+    },
+    credentials: 'include',
+    body: JSON.stringify(movie)
+  }).then(this._checkResponse)
+};
+getMovies() {
+  if (!this.savedMoives) {
+    const res =  fetch(`${MOVIES_URL}`, {
+      method: 'GET',
+    });
+    this.savedMoives =  this._checkResponse(res);
+  }
+  return this.savedMoives;
+}
+  resetSave() {
+    delete this.savedMoives; // удалить свойство из объекта
+  }  
 
-  registerUser = (regData) =>
-    this.#makeRequest('POST', '/signup', regData, 'notSave');
+  deleteMovie(cardId, token) {
+    return fetch(`${this._url}/movies/${cardId}`, {
+        method: 'DELETE',
+        headers: {
+            'Authorization': `Bearer ${localStorage.getItem('jwt')}`
+        },
+    })
+}
+  getCards(token) {
+      return this._request(`${this._url}/movies`, {
+          headers: {
+              'Authorization': `Bearer ${token}`
+          }
+      })
+  }
+  signOut() {
+    return fetch(`${this._url}/signout`, {
+      method: "POST",
+      headers: this._headers,
+      
+      credentials: "include",
+    }).then(this._handleResponse);
+  }
+  setInfoProfile(data, token) {
+      return this._request(`${this._url}/users/me`, {
+          method: 'PATCH',
+          headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${token}`
+          },
+          body: JSON.stringify({
+              name: data.name,
+              email: data.email,
+          })
+      })
+  }
 
-  loginUser = (loginData) =>
-    this.#makeRequest('POST', '/signin', loginData, 'notSave');
-
-  updateUserData = (userData) => {
-    return this.#makeRequest('PATCH', '/users/me', userData);
-  };
-
-  getUserInfo = () => this.#makeRequest('GET', '/users/me');
-
-  getSavedMovies = () => this.#makeRequest('GET', '/movies');
-
-  createMovie = (movie) => this.#makeRequest('POST', '/movies', movie);
-
-  deleteMovie = (id) => this.#makeRequest('DELETE', `/movies/${id}`);
+  deleteCardID(cardID, token) {
+      return this._request(`${this._url}/movies/${cardID}`, {
+          method: 'DELETE',
+          headers: {
+              "Authorization": `Bearer ${token}`
+          }
+      })
+  }
 }
 
 const api = new MainApi({
-  url: 'https://api.diplom.dexaid.nomoredomainswork.ru',
-  headers: {
-    'Content-Type': 'application/json',
-  },
+  baseUrl: 'http://localhost:3000',
 });
+
 export default api;

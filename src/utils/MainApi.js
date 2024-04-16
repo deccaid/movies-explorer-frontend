@@ -118,7 +118,7 @@ getMovies() {
 }
 
 const api = new MainApi({
-  baseUrl: 'http://localhost:3000',
+  baseUrl: 'https://api.decaid.diplom.nomoredomainswork.ru',
 });
 
 export default api;

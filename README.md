@@ -1,6 +1,6 @@
 #level 3
 макет dark-2
-backend: https://api.diplom.dexaid.nomoredomainswork.ru/
-frontend: https://diplom.dexaid.nomoredomainswork.ru/
+backend: http://api.decaid.diplom.nomoredomainswork.ru/
+frontend: http://decaid.diplom.nomoredomainswork.ru/
 
 pull: https://github.com/deccaid/movies-explorer-frontend/pull/2

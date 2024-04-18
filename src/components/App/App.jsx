@@ -38,7 +38,7 @@ const App = () => {
   const [searchSavedInputValue, setSearchSavedInputValue] = useState(
     localStorage.getItem('searchSavedInputValue') ?? ''
   );
-  const [isShortFilm, setIsShortFilm] = useState(false);
+  const [isShortFilm, setIsShortFilm] =  useState(localStorage.getItem('isShortFilm') === 'true');
   const [isShortSavedFilm, setIsShortSavedFilm] = useState(false);
   
 

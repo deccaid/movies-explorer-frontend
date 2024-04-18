@@ -21,7 +21,7 @@ const correctMovieFormat = (movie) => {
 };
 function getmoviesPage (screenWidth) {
   if (screenWidth > SCREEN_1150) {
-    return MOVIES_16 ;
+    return MOVIES_12 ;
   } else if (screenWidth > SCREEN_800) {
     return MOVIES_12;
   } else if (screenWidth > SCREEN_650) {

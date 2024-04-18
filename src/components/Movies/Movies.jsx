@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import "./Movies.css";
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
@@ -15,6 +16,14 @@ const Movies = ({
   setSavedMovies,
   serverError,
 }) => {
+  const handleShortFilmChange = (checked) => {
+    setIsShortFilm(checked);
+    localStorage.setItem("isShortFilm", !isShortFilm);  
+  };
+  useEffect(() => {
+    const storedShortMovies = localStorage.getItem("isShortFilm");
+    setIsShortFilm(storedShortMovies === "true");
+  }, []);
   return (
     <div className="container-movies">
       <SearchForm 
@@ -23,6 +32,7 @@ const Movies = ({
         setIsLoading={setIsLoading}
         isShortFilm={isShortFilm}
         setIsShortFilm={setIsShortFilm}
+        onShortFilmChange={handleShortFilmChange}
         savedMovies={savedMovies}
         setSavedMovies={setSavedMovies}/>
         <MoviesCardList

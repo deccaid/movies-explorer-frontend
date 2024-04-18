@@ -52,7 +52,6 @@ export default function MoviesCardList({
     });  
       
     localStorage.setItem("filteredMoviesList", JSON.stringify(filtredMovies));  
-    localStorage.setItem("isShortFilm", isShortFilm);  
   
     return filtredMovies;  
   }, [searchInputValue, location.pathname, movies,isShortFilm, isShortSavedFilm]);

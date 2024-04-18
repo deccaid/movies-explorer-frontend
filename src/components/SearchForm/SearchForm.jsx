@@ -10,11 +10,9 @@ const SearchForm = ({
   searchInputValue,
   setIsLoading,
   isShortFilm,
-  setIsShortFilm,
-  isShortSavedFilm,
-  setIsShortSavedFilm,
   savedMovies,
   setSavedMovies,
+  onShortFilmChange,
 }) => {
   const location = useLocation();
   const [error, setError] = useState('');  
@@ -72,6 +70,9 @@ const SearchForm = ({
   useEffect(() => {
     setTextInput(searchInputValue);
   }, [searchInputValue]);
+  const handleShortFilmToggle = (e) => {
+    onShortFilmChange(e.target.checked);
+  };
 
 
   return (
@@ -90,11 +91,8 @@ const SearchForm = ({
                     <span className="search__error"></span>
                     </div>
            <SwitchCheckbox 
-          handleSearchSubmit={handleSearchSubmit}
-          isShortFilm={isShortFilm}
-          setIsShortFilm={setIsShortFilm}
-          isShortSavedFilm={isShortSavedFilm}
-          setIsShortSavedFilm={setIsShortSavedFilm}
+          isChecked={isShortFilm}
+          onCheckboxChange={handleShortFilmToggle}
           />
            </form>
            </>

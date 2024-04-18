@@ -47,7 +47,7 @@ class Auth {
 }
 
 export const auth = new Auth({
-  // url: "https://api.decaid.diplom.nomoredomainswork.ru"
-  url: 'http://localhost:3000',
+  url: "https://api.decaid.diplom.nomoredomainswork.ru"
+  // url: 'http://localhost:3000',
 });
 

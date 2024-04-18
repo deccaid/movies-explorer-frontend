@@ -75,7 +75,7 @@ const SearchForm = ({
     setTextInput(searchInputValue);
   }, [searchInputValue]);
   const handleShortFilmToggle = (e) => {
-    const newValue = !isShortFilm;
+    const newValue = !isShortFilm; // Инвертируем текущее значение isShortFilm
     onShortFilmChange(newValue);
     setSearchInputValue(textInput);
   };

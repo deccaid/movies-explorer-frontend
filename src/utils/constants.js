@@ -18,15 +18,16 @@ const ADDED_MOVIES_AMOUNT = {
 };
 
 const SCREEN_1150 = 1150;
-const SCREEN_800 = 800;
+const SCREEN_800 = 700;
 const SCREEN_650 = 650;
 
 const MOVIES_16 = 16;
 const MOVIES_12 = 12;
+
+const MOVIES_10 = 10;
 const MOVIES_8 = 8;
 const MOVIES_5 = 5;
 
-const MOVIES_4_ADD = 4;
 const MOVIES_3_ADD = 3;
 const MOVIES_2_ADD = 2;
 
@@ -42,11 +43,11 @@ export {
     SCREEN_800,
     SCREEN_650,
     MOVIES_16 ,
-    ADDED_MOVIES_AMOUNT,
     MOVIES_12,
+    ADDED_MOVIES_AMOUNT,
+    MOVIES_10,
     MOVIES_8,
     MOVIES_5,
-    MOVIES_4_ADD,
     MOVIES_3_ADD,
     MOVIES_2_ADD,
     SHORT_FILM_DURATION,

@@ -64,9 +64,9 @@ export default function MoviesCardList({
   const handleMoreClick = () => {
     let moviesToAdd =
       screenWidth > SCREEN_1150
-        ? MOVIES_4_ADD
-        : screenWidth > SCREEN_800
         ? MOVIES_3_ADD
+        : screenWidth > SCREEN_800
+        ? MOVIES_2_ADD
         : screenWidth > SCREEN_650
         ? MOVIES_2_ADD
         : MOVIES_2_ADD;

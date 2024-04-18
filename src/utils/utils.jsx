@@ -1,5 +1,5 @@
 
-import {SCREEN_1150, MOVIES_16 , SCREEN_800,MOVIES_12,SCREEN_650,MOVIES_8,MOVIES_5  } from "../utils/constants";
+import {SCREEN_1150, MOVIES_16 , SCREEN_800,MOVIES_12, MOVIES_10,SCREEN_650,MOVIES_8,MOVIES_5  } from "../utils/constants";
 
 const correctMovieFormat = (movie) => {
   const newCard = JSON.parse(JSON.stringify(movie));
@@ -21,9 +21,9 @@ const correctMovieFormat = (movie) => {
 };
 function getmoviesPage (screenWidth) {
   if (screenWidth > SCREEN_1150) {
-    return MOVIES_12 ;
-  } else if (screenWidth > SCREEN_800) {
     return MOVIES_12;
+  } else if (screenWidth > SCREEN_800) {
+    return MOVIES_8;
   } else if (screenWidth > SCREEN_650) {
     return MOVIES_8;
   } else {

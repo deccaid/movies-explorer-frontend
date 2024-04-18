@@ -6,15 +6,11 @@ export default function SavedMovies({
   setSearchInputValue,
   searchInputValue,
   setIsLoading,
-  // isShortFilm,
-  // setIsShortFilm,
   handleLikeMovie,
   movies,
   savedMovies,
   setSavedMovies,
-  serverError,
-  isShortSavedFilm,
-  setIsShortSavedFilm,
+  serverError
 }) {
   const [shortFilmSave, setShortFilmSave] = useState(false);
 

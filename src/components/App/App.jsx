@@ -98,14 +98,28 @@ const App = () => {
   }
 
 
-  function handleUpdateUser(userData, token) {
-   return api 
+  function handleUpdateUser(userData, setIsErrorSending, setIsDataUpdated, setIsErrorSending1, token) {
+    return api
       .setInfoProfile(userData, token)
       .then((newUserData) => {
-        setCurrentUser(newUserData);
+        if (newUserData.status === 409) {
+          setIsErrorSending(true);
+          setTimeout(() => {
+            setIsErrorSending(false);
+          }, 2000);
+          throw new Error('Error updating user data');
+        } else {
+          setCurrentUser(newUserData);
+          setIsDataUpdated(true);
+  
+          setIsErrorSending1(true);
+          setTimeout(() => {
+            setIsErrorSending1(false);
+          }, 2000); // устанавливаем таймер на 5 секунд
+        }
       })
       .catch((err) => {
-        console.log(`Ошибка обновления данных профиля: ${err}`);
+        setIsErrorSending(true);
       });
   }
 

@@ -14,8 +14,12 @@ const Profile = ({ onLogOut, updateUser }) => {
     name: currentUser.name,
     email: currentUser.email,
   });
+  const [isErrorSending, setIsErrorSending] = useState();
+  const [isErrorSending1, setIsErrorSending1] = useState();
   const [isEditProfile, setIsEditProfile] = useState(false);
   const [isRequesting, setIsRequesting] = useState(false);
+  const [isDataChanged, setIsDataChanged] = useState(false);
+  const [isDataUpdated, setIsDataUpdated] = useState(false);
 
   const openEditProfile = (e) => {
     e.preventDefault();
@@ -25,7 +29,8 @@ const Profile = ({ onLogOut, updateUser }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsRequesting(true);
-    updateUser(values, localStorage.getItem('jwt'))
+    setIsDataChanged(false);
+    updateUser(values, setIsErrorSending, setIsDataUpdated,setIsErrorSending1, localStorage.getItem('jwt'))
     .then(() => {
       setIsEditProfile(false);
     })
@@ -79,9 +84,18 @@ const Profile = ({ onLogOut, updateUser }) => {
              
           </label>
           <span className="profile__error">{errors.email || ''}</span>
-
           {!isEditProfile ? (
             <div>
+               {isErrorSending && (
+              <p className="profile__error">
+                При обновлении профиля произошла ошибка.
+              </p>
+            )}
+             {isErrorSending1 && (
+              <p className="profile__error profile__done">
+                Данные успешно изменены
+              </p>
+            )}
               <button className="profile__button" onClick={openEditProfile}>
                 Редактировать
               </button>

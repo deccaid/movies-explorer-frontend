@@ -6,6 +6,9 @@
   align-items: center;
   justify-content: center;
 }
+.form__error-text {
+  color: red;
+}
 .profile__container {
   max-width: 410px;
   width: 100%;
@@ -95,7 +98,9 @@
   left: auto;
   bottom: 70px;
 }
-
+.profile__done {
+  color: greenyellow;
+}
 .profile__button {
   background: transparent;
   border: none;

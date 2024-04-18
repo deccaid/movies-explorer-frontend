@@ -98,7 +98,7 @@ const App = () => {
   }
 
 
-  function handleUpdateUser(userData, setIsErrorSending, setIsDataUpdated, setIsErrorSending1, token) {
+  function handleUpdateUser(userData, setIsErrorSending, setIsDoneSending, token) {
     return api
       .setInfoProfile(userData, token)
       .then((newUserData) => {
@@ -109,12 +109,10 @@ const App = () => {
           }, 2000);
           throw new Error('Error updating user data');
         } else {
-          setCurrentUser(newUserData);
-          setIsDataUpdated(true);
-  
-          setIsErrorSending1(true);
+          setCurrentUser(newUserData);  
+          setIsDoneSending(true);
           setTimeout(() => {
-            setIsErrorSending1(false);
+            setIsDoneSending(false);
           }, 2000); // устанавливаем таймер на 5 секунд
         }
       })
@@ -295,9 +293,6 @@ const getLikedMovies = () => {
                   movies={savedMovies}
                   savedMovies={savedMovies}
                   setSavedMovies={setSavedMovies}
-              
-    
-                    // checkSavedMovies={handleSaveMovie}
                   />
                 }
               ></Route>

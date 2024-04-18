@@ -2,18 +2,13 @@ import React from "react";
 import { useEffect, useState } from 'react';
 import logo from "../../images/logo__COLOR_main-1.svg"
 import './Login.css';
-import { Link, useNavigate  } from "react-router-dom";
+import { Link} from "react-router-dom";
 import useFormWithValidation from '../../hooks/useFormWithValidation';
 
 const Login = ({ handleLogin  }) => {
   const [isRequesting, setIsRequesting] = useState(false);
   const { values,handleChange, resetForm, errors, isValid } =
-    useFormWithValidation();
-    const [formValue, setFormValue] = useState({
-      email: '',
-      password: ''
-    })
-  
+    useFormWithValidation();  
   
     const handleSubmit = (evt) => {      
       evt.preventDefault();  

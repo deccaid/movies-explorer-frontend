@@ -15,11 +15,9 @@ const Profile = ({ onLogOut, updateUser }) => {
     email: currentUser.email,
   });
   const [isErrorSending, setIsErrorSending] = useState();
-  const [isErrorSending1, setIsErrorSending1] = useState();
+  const [isDoneSending1, setIsDoneSending] = useState();
   const [isEditProfile, setIsEditProfile] = useState(false);
   const [isRequesting, setIsRequesting] = useState(false);
-  const [isDataChanged, setIsDataChanged] = useState(false);
-  const [isDataUpdated, setIsDataUpdated] = useState(false);
 
   const openEditProfile = (e) => {
     e.preventDefault();
@@ -29,8 +27,7 @@ const Profile = ({ onLogOut, updateUser }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsRequesting(true);
-    setIsDataChanged(false);
-    updateUser(values, setIsErrorSending, setIsDataUpdated,setIsErrorSending1, localStorage.getItem('jwt'))
+    updateUser(values, setIsErrorSending, setIsDoneSending, localStorage.getItem('jwt'))
     .then(() => {
       setIsEditProfile(false);
     })
@@ -91,7 +88,7 @@ const Profile = ({ onLogOut, updateUser }) => {
                 При обновлении профиля произошла ошибка.
               </p>
             )}
-             {isErrorSending1 && (
+             {isDoneSending1 && (
               <p className="profile__error profile__done">
                 Данные успешно изменены
               </p>

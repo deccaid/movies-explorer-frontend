@@ -68,6 +68,7 @@ const SearchForm = ({
   };
   const handleFormSubmit = (e) => {
     handleSearchSubmit(e);
+    handleShortFilmToggle(e);
  };
 
   useEffect(() => {

@@ -77,8 +77,17 @@ const SearchForm = ({
   const handleShortFilmToggle = (e) => {
     const newValue = !isShortFilm; // Инвертируем текущее значение isShortFilm
     onShortFilmChange(newValue);
-    setSearchInputValue(textInput);
-  };
+    try {
+        if (location.pathname === '/movies') {
+            localStorage.setItem('searchInputValue', textInput);
+        } else {
+            localStorage.setItem('searchSavedInputValue', textInput);
+        }
+        setSearchInputValue(textInput);
+    } catch (error) {
+        console.error('Error:', error);
+    }
+};
 
 
   return (

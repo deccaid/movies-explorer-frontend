@@ -1,6 +1,6 @@
 import { useMediaQuery } from "react-responsive";
 import "./Navigation.css";
-import { Link, useLocation } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 
 
@@ -29,7 +29,7 @@ const Navigation = ({ isLoggedIn }) => {
               Сохранённые фильмы
             </Link>
             </div>
-            <Link to='/profile' className="header__mail">Аккаунт</Link>
+            <NavLink to='/profile' className="header__mail">Аккаунт</NavLink>
         </>
         )}
       </>

@@ -9,6 +9,9 @@
     cursor: pointer;
     margin: auto 0 auto 10px;
 }
+.search__button:hover {
+    opacity: 0.8;
+}
 .search {
     display: flex;
     margin-top: 78px;
@@ -20,6 +23,7 @@
     border-radius: 10px;
     background: #2F2F2F;
     border: none;
+    color: #fff;
 }
 @media screen and (max-width: 550px) {
     .search {
